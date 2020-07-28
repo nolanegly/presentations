@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VolunteerConvergence", "VolunteerConvergence\VolunteerConvergence.csproj", "{0554910C-B80F-4D1F-B76B-3A20C6360118}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VolunteerConvergence.IntegrationTests", "VolunteerConvergence.IntegrationTests\VolunteerConvergence.IntegrationTests.csproj", "{1CEC01D8-F171-47A6-9E61-119ACE519015}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0554910C-B80F-4D1F-B76B-3A20C6360118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0554910C-B80F-4D1F-B76B-3A20C6360118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0554910C-B80F-4D1F-B76B-3A20C6360118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0554910C-B80F-4D1F-B76B-3A20C6360118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CEC01D8-F171-47A6-9E61-119ACE519015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CEC01D8-F171-47A6-9E61-119ACE519015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CEC01D8-F171-47A6-9E61-119ACE519015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CEC01D8-F171-47A6-9E61-119ACE519015}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F6126F4-B7F2-4E74-9655-2C4DEBE697AC}
+	EndGlobalSection
+EndGlobal

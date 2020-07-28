@@ -1,0 +1,95 @@
+﻿@page
+@model Applicants.CreateModel
+@{
+    ViewData["Title"] = "Create Applicant";
+}
+
+<div class="container">
+    <div class="card text-white bg-info">
+        <h5 class="card-title">This page contrasts doing validation with a full post, or using an ajax post.</h5>
+        <p>Note the full post validation will highlight all fields, and the ajax post validation will highlight the wrong fields, because you don't typically have two forms with matching input elements on the same page.</p>
+        Validations
+        <ul>
+            <li>All of the fields are required. First and Last name use attribute validation, email uses Fluent Validation.</li>
+            <li>Complex validation: You can use 'Nolan' for the first name, and include 'nolan' in the email address.</li>
+            <li>Simulate business validation: use an email ending with 'example.com'</li>
+        </ul>
+    </div>
+    <div class="row">
+        <p />
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>Full post</h4>
+            <form asp-page-handler="full" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Data.FirstName" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Data.FirstName" class="form-control"/>
+                        <span asp-validation-for="Data.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Data.LastName" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Data.LastName" class="form-control"/>
+                        <span asp-validation-for="Data.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Data.Email" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Data.Email" class="form-control"/>
+                        <span asp-validation-for="Data.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary"/>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="col">
+            <h4>Ajax post</h4>
+            <form asp-page-handler="ajax" method="post" class="with-ajax">
+                <div asp-validation-summary="All" class="text-danger" id="validationSummary"></div>
+
+                <div class="form-group">
+                    <label asp-for="Data.FirstName" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Data.FirstName" class="form-control"/>
+                        <span asp-validation-for="Data.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Data.LastName" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Data.LastName" class="form-control"/>
+                        <span asp-validation-for="Data.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Data.Email" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Data.Email" class="form-control"/>
+                        <span asp-validation-for="Data.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary"/>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
