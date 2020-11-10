@@ -1,0 +1,52 @@
+﻿@page
+@model Organizations.IndexModel
+@{
+    ViewData["Title"] = "Organizations";
+}
+
+<h2>Organizations</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Organization Type
+            </th>
+            <th>
+                Need Level
+            </th>
+            <th>Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model.Data.Organizations)
+        {
+            <tr>
+                <td>                    
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.OrganizationTypeName
+                </td>
+                <td>
+                    @Html.NeedLevelSpan(item.NeedLevel)
+                </td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
