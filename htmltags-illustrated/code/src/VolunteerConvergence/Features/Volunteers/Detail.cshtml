@@ -1,0 +1,59 @@
+﻿@page
+@model Volunteers.DetailModel
+@{
+    ViewData["Title"] = "Volunteers";
+}
+
+<div class="container">
+    <div class="card text-white bg-info">
+        <h5 class="card-title">This page demonstrates IQueryable projection with AutoMapper</h5>
+        <p>There are several methods on the query handler demonstrating the various auto vs. manual approaches on SQL projection and object mapping.</p>
+    </div>
+</div>
+<h2>Volunteer Details</h2>
+
+
+@Html.DisplayBlock(m => m.Data.FirstName)
+@Html.DisplayBlock(m => m.Data.LastName)
+@Html.DisplayBlock(m => m.Data.Email)
+@Html.DisplayBlock(m => m.Data.JoinDate)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Organization
+            </th>
+            <th>
+                Organization Type
+            </th>
+            <th>
+                # Hours
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model.Data.VolunteerHours)
+        {
+            <tr>
+                <td>
+                    @*This breaks the HtmlTags DisplayBlock for some reason*@
+                    @*@Html.Display(m => item.OrganizationName)*@
+                    @Html.Display(m => m.Data.VolunteerHours[i].OrganizationName)
+                </td>   
+                <td>
+                    @Html.Display(m => m.Data.VolunteerHours[i].OrganizationOrganizationTypeName)
+                </td>
+                <td>
+                    @Html.Display(m => m.Data.VolunteerHours[i].NumHours)
+                </td>
+                <td>
+                    <a asp-page="DetailEdit" asp-route-id="@item.Id">Select</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>

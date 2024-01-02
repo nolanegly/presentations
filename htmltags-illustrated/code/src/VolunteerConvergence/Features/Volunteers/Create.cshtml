@@ -1,0 +1,38 @@
+﻿@page
+@model Volunteers.CreateModel
+@{
+    ViewData["Title"] = "Create Volunteer";
+}
+
+<div class="container">
+    <div class="card text-white bg-info">
+        <h5 class="card-title">This page demonstrates HtmlTags</h5>
+        <p>FirstName is being rendered with the low level HtmlTags methods. Note the versatile builder methods like 'AddClasses', instead of injecting a dictionary of properties for HtmlHelpers.</p>
+        <p>LastName is being rendered with an extension method we wrote for our app, that outputs the entire form hierarchy that repeatedly appears in forms.</p>
+        <p>Email is being rendered with the same extension method, but is using a 'modify' expression we can pass in to customize a particular form field/input pair.</p>
+    </div>
+    <div class="row">
+        <form asp-controller="Create" method="post" class="with-ajax">
+            @Html.ValidationDiv()
+            
+            <div class="form-group">
+                @Html.Label(l => l.Data.FirstName).AddClasses("col-md-6")
+                <div class="col-md-10">
+                    @Html.Input(i => i.Data.FirstName)
+                    <span asp-validation-for="Data.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            @Html.FormBlock(x => x.Data.LastName)
+            
+            @Html.FormBlock(x => x.Data.Email, l => l.AppendText(" (please no fakes)"))
+            
+            @Html.FormBlock(x => x.Data.JoinDate)
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary"/>
+            </div>
+
+        </form>
+    </div>
+</div>

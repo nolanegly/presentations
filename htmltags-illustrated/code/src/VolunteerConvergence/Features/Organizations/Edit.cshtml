@@ -1,0 +1,27 @@
+﻿@page
+@model Organizations.EditModel
+@{
+    ViewData["Title"] = "Edit Details";
+}
+
+<div class="container">
+    <div class="card text-white bg-info">
+        <h5 class="card-title">This page demonstrates select lists with HtmlTags, and concurrent edit protection</h5>
+        <p>By implementing a builder class descending from EntitySelectElementBuilder, we can reference domain objects in our view models with little translation effort.</p>
+        <p>Concurrent changes are detected by sending RowVersion to form, and then reapplying that RowVersion when applying the edits to the row (EF will throw if the RowVersion is stale).</p>
+    </div>
+    <div class="row">
+        <form method="post" class="with-ajax">
+            @Html.ValidationDiv()
+            @Html.Input(m => m.Data.Id)
+            @Html.Input(m => m.Data.RowVersion)
+            @Html.Input(m => m.Data.Name)
+            @Html.FormBlock(x => x.Data.OrganizationType)
+            @Html.FormBlock(x => x.Data.Description)
+            @Html.FormBlock(x => x.Data.NeedLevel)
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

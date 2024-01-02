@@ -1,0 +1,49 @@
+﻿@page
+@model Applicants.IndexModel
+@{
+    ViewData["Title"] = "Applicants";
+}
+
+<h2>Applicants</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First
+            </th>
+            <th>
+                Last
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model.Data.Applicants)
+        {
+            <tr>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    Coming Soon (links to view/edit/delete)
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
